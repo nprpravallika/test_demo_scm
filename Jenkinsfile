@@ -14,7 +14,7 @@ pipeline {
         stage('Example2') {
             steps {
                 script{
-                    def data = readJSON file: 'FW_2.2.json'
+                    def data = readJSON file: '${params.PRODUCT}_${params.VERSION}.json'
                     echo "prod: ${data.prod} version: ${data.version}"
                 }
             }
