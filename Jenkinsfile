@@ -13,9 +13,9 @@ pipeline {
         }
         stage('Example2') {
             steps {
-                def filecontent = readJSON file: 'FW_2.2.json'
-                filecontent.each { key, value ->
-                    echo "Walked through key $key and value $value"
+                node{
+                    def data = readJSON file: 'FW_2.2.json'
+                    echo "prod: ${data.product} version: ${data.version}"
                 }
             }
         }
