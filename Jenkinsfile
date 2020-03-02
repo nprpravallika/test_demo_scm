@@ -11,5 +11,13 @@ pipeline {
                 echo "Hello ${params.PERSON}${params.PRODUCT}${params.VERSION}"
             }
         }
+        stage('Example2') {
+            steps {
+                def filecontent = readJSON file: 'FW_2.2.json'
+                filecontent.each { key, value ->
+                    echo "Walked through key $key and value $value"
+                }
+            }
+        }
     }
 }
